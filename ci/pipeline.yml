@@ -11,7 +11,7 @@ resources: # This is where we define the resources are pipeline will work with. 
 - name: source # Here we're pulling a git repo as well as naming the folder the repo will live in for the duration of the pipeline.  It's worth remembering that the name of this resource will be the name of the folder when you go to access files.
   type: git
   source:
-    uri: https://github.com/JasonMorgan/adsb-sync.git
+    uri: https://github.com/JasonMorgan/planespotter-frontend.git
     ignore_paths: 
       - README.md
       - .gitignore
@@ -23,7 +23,7 @@ resources: # This is where we define the resources are pipeline will work with. 
 # - name: docker-image
 #   type: docker-image
 #   source:
-#     repository: harbor.gcp.59s.io:443/59s/adsb-sync
+#     repository: harbor.gcp.59s.io:443/59s/planespotter-frontend
 #     username: ((harbor.username))
 #     password: ((harbor.password))  
 #     insecure_registries: ["harbor.gcp.59s.io:443"]
@@ -34,7 +34,7 @@ resources: # This is where we define the resources are pipeline will work with. 
   source:
     driver: git
     branch: master
-    uri: https://github.com/JasonMorgan/adsb-sync.git
+    uri: https://github.com/JasonMorgan/planespotter-frontend.git
     file: ci/metadata/tag
     username: ((git.username))
     password: ((git.password))
@@ -46,9 +46,9 @@ resources: # This is where we define the resources are pipeline will work with. 
     username: ((harbor.username))
     password: ((harbor.password))
     skip_pull: true
-    repository: harbor.gcp.59s.io:443/59s/adsb-sync
+    repository: harbor.gcp.59s.io:443/59s/planespotter-frontend
     harbor_host: harbor.gcp.59s.io
-    harbor_image: harbor.gcp.59s.io/59s/adsb-sync
+    harbor_image: harbor.gcp.59s.io/59s/planespotter-frontend
     harbor_trigger_scan: false
     harbor_scan_thresholds:  [{"severity": 1,"count": 20},{"severity": 2,"count": 20}]
     notary_enable: false
